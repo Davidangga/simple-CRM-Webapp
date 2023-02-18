@@ -1,0 +1,68 @@
+{%  extends 'account/main.html' %}
+
+{% block content %}
+<hr>
+	<h5>Dashboard</h5>
+	
+{%  include 'account/status.html' %}
+<hr>
+<div class="row">
+	<div class="col-md-5">
+		<h5>LAST 5 CUSTOMERS:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{%url 'manage:create-customer'%}">Create Customer</a>
+			<table class="table table-sm">
+				<tr>
+					<th></th>
+					<th>Customer</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th></th>
+				</tr>
+				{%for c in customer%}
+				<tr>
+				<td></td>
+				<td>{{c.username}}</td>
+				<td>{{c.email}}</td>
+				<td>{{c.telp}}</td>
+				<td><a  class="btn btn-sm btn-outline-primary" href="{%url 'manage:customer' c.id%}">View</a></td>
+				</tr>
+				{%endfor%}
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>LAST 5 ORDERS</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{%url 'manage:all-orders'%}">All Orders</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Customer</th>
+					<th>Payment</th>
+					<th>Product</th>
+					<th>Amount</th>
+					<th>Date Ordered</th>
+					<th>Status</th>
+				</tr>
+				{%for o in order%}
+				<tr>
+				<td>{{o.customer.username}}</td>
+				<td>{{o.payment_status}}</td>
+				<td>{{o.product}}</td>
+				<td>{{o.amount}}</td>
+				<td>{{o.date_ordered | date:"F d, Y"}}</td>
+				<td>{{o.status}}</td>
+				</tr>
+				{%endfor%}
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+

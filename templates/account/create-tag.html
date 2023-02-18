@@ -1,0 +1,13 @@
+{%extends 'account/main.html'%}
+{%block content%}
+<div class="col-md-4">
+    <form action="" method='post'>
+        {%csrf_token%}
+        {{form}}
+        <button class='btn btn-outline-info' type="submit">Add</button>
+        <a class= 'btn btn-sm btn-outline-primary'href="{% url 'manage:products' %}">Back to Product List</a>
+    </form>
+
+</div>
+
+{%endblock%}

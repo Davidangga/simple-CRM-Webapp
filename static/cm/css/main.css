@@ -1,0 +1,40 @@
+
+#body{
+    background-color: #ebeff5;
+}
+#total-orders{
+    background-color: #68c778;
+}
+#orders-delivered{
+    background-color: #59b496;
+}
+#orders-pending{
+    background-color: #5c73da;
+}
+#total-products{
+    background-color: #58a3e9;
+}
+  .border{
+    width: 50%;
+    padding: 12px 20px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .border-select{
+    width: 50%;
+    padding: 12px 20px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+  }
+
+
+  

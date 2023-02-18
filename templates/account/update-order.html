@@ -1,0 +1,12 @@
+{%extends 'account/main.html'%}
+{%block content%}
+<form action="" method='post'>
+    {%csrf_token%}
+    <h2>Customer: {{name}}</h2>
+    
+    {{form}}
+    
+    <button class='btn btn-outline-info' type="submit">Update</button>
+</form>
+
+{%endblock%}

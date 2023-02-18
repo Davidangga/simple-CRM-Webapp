@@ -1,0 +1,56 @@
+{%  extends 'account/main.html' %}
+
+{% block content %}
+{%load crispy_forms_tags%}
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Customers <a class="btn btn-sm btn-primary" href="{%url 'manage:create-customer'%}">Add Customer</a></h5>
+				</div>
+				<div class="card card-body">
+			
+						<form method="get">
+							{{myfilter.form}}
+			
+						<button class="btn btn-primary" type="submit">Search</button>
+						  </form>
+			
+				
+				</div>
+				
+	
+
+			
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+                            <th>Name</th>
+                            <th>Email</th>
+							<th>Total Orders</th>
+							<th>Phone Number</th>
+                            <th>Orders paid</th>
+                            <th>Orders Unpaid</th>
+                            <th></th>
+						</tr>
+
+						{% for customer,paid_order,unpaid_order in mylists %}
+							<tr>
+								<td>{{customer.username}}</td>
+								<td>{{customer.email}}</td>
+								<td>{{customer.order_set.count}}</td>
+								<td>{{customer.telp}}</td>
+                                <td>{{paid_order}}</td>
+                                <td>{{unpaid_order}}</td>
+								<td><a class = "btn btn-sm btn-outline-primary"href="{%url 'manage:customer' customer.id%}">View</a></td>
+								<td><a class = "btn btn-sm btn-outline-danger"href="{%url 'manage:delete-customer' customer.id%}">x</a></td>
+							</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+		</div>
+
+{% endblock content %}

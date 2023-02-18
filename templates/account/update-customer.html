@@ -1,0 +1,12 @@
+{%extends 'account/main.html'%}
+{%block content%}
+
+<form action="" method='post'>
+    {%csrf_token%}
+    {{form}}
+    <button class='btn btn-info' type="submit">Update</button>
+    <a class= 'btn btn-sm btn-outline-primary'href="{% url 'manage:customer' object.id %}">Back to Customer Profile</a>
+</form>
+
+
+{%endblock%}

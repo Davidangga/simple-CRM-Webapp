@@ -1,0 +1,12 @@
+{%extends 'account/main.html'%}
+{%block content%}
+
+<form action="" method='post'>
+    {%csrf_token%}
+    {{form}}
+    <button class='btn btn-outline-info' type="submit">Create</button>
+    <a class= 'btn btn-sm btn-outline-primary'href="{% url 'manage:customers' %}">Back to Customer List</a>
+</form>
+
+
+{%endblock%}

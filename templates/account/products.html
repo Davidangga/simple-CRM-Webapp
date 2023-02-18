@@ -1,0 +1,59 @@
+{%  extends 'account/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Products 
+						<a class="btn btn-sm btn-primary" href="{%url 'manage:add-tag'%}">Add Tag</a>
+						<a class="btn btn-sm btn-primary" href="{%url 'manage:create-category'%}">Add Products</a>
+					</h5>
+				</div>
+				<div class="row">
+						<div class="card card-body">
+				
+							<form method="get">
+								{{myfilter.form}}
+				
+							<button class="btn btn-primary" type="submit">Search</button>
+						  	</form>
+				
+					
+					</div>
+					
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Product</th>
+							<th>Status</th>
+							<th>Category</th>
+							<th>Stock</th>
+							<th>Price</th>
+							<th></th>
+							<th></th>
+						</tr>
+
+						{% for product in products %}
+							<tr>
+								<td>{{product.product}}</td>
+								<td>{{product.status}}</td>
+								<td>{{product.category}}</td>
+								<td>{{product.stocks}}</td>
+								<td>Rp {{product.price}}</td>
+								<td><a class = "btn btn-sm btn-outline-info"href="{%url 'manage:update-product' product.id%}">Update</a></td>
+								<td><a class = "btn btn-sm btn-outline-danger"href="{%url 'manage:delete-product' product.id%}">x</a></td>
+
+							</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}
